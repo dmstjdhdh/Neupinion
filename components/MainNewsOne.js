@@ -1,62 +1,62 @@
-import React from 'react';
-import { View, Text, Modal, TouchableOpacity, Image, ScrollView, StyleSheet } from 'react-native';
+import React, {useCallback} from 'react';
+import {View, Text, Modal, TouchableOpacity, Image, ScrollView, StyleSheet, Dimensions} from 'react-native';
 
-const MainNewsOne = ({ isVisible, onClose }) => {
+const MainNewsOne = ({navigation}) => {
+    const onClick = () => {navigation.navigate('Home')};
+
     return (
-        <Modal
-            animationType="slide"
-            transparent={true}
-            visible={isVisible}
-            onRequestClose={onClose}
-        >
-            <View style={styles.modalContainer}>
-
-                {/* 팝업 내용 */}
-                <View style={styles.popup}>
-                    <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-                        <Text style={styles.closeButtonText}>닫기</Text>
+        <View style={{
+            backgroundColor: 'white',
+        }}>
+            <View style={styles.topContainer}>
+                <View>
+                    <TouchableOpacity onPress={onClick}>
+                        <Image source={require("./public/ui/backbutton.png")} style={{
+                            width: 7.66667,
+                            height: 15.33333,
+                            marginLeft: 20,
+                        }}>
+                        </Image>
+                    </TouchableOpacity>
+                </View>
+                <View style={{marginLeft: 250}}>
+                    <TouchableOpacity onPress={onClick}>
+                        <Image source={require("./public/ui/bookmark.png")} style={{
+                            width: 11.5*1.25, height: 16.29167*1.25,
+                            marginLeft: 20,
+                        }}>
+                        </Image>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <TouchableOpacity onPress={onClick}>
+                        <Image source={require("./public/ui/share.png")} style={{
+                            width: 16*1.25, height: 15.33333*1.25,
+                            marginLeft: 20,
+                        }}>
+                        </Image>
                     </TouchableOpacity>
                 </View>
             </View>
-        </Modal>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
-    modalContainer: {
-        flex: 1,
-        justifyContent: 'center',
+    topContainer: {
+        width: Dimensions.get('window').width,
+        marginTop: 20,
+        height: 48,
+        backgroundColor: 'white',
+        flexDirection: 'row',
         alignItems: 'center',
     },
-    popup: {
-        backgroundColor: '#fff',
-        width: '100%',
-        height: '100%',
+    topContainerL: {
+
     },
-    closeButton: {
-        position: 'absolute',
-        top: 10,
-        right: 10,
-    },
-    closeButtonText: {
-        fontSize: 16,
-        color: '#3498db',
-    },
-    popupBox: {
-        alignItems: 'center',
-    },
-    popupTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    slideImage: {
-        width: 80,
-        height: 80,
-        borderRadius: 10,
-        marginRight: 10,
-    },
-    // 슬라이드 인디케이터와 다음 버튼에 대한 스타일 추가
+    topContainerR: {
+
+    }
 });
 
 export default MainNewsOne;

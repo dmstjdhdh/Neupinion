@@ -1,23 +1,35 @@
-import React, { useState } from 'react';
-import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import React, {useCallback, useState} from 'react';
+import {
+    Dimensions,
+    Image,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+    ScrollView,
+    TouchableHighlight
+} from 'react-native';
 import HomeContent from './HomeContent';
 import MiddleContent from './MiddleContent';
 import CommunityContent from './CommunityContent';
 import MyContent from './MyContent';
 
-const Footer = () => {
+const Footer = ({navigation}) => {
     const [selectedContents, setSelectedContents] = useState('home');
 
     const handlePress = (buttonName) => {
         setSelectedContents(buttonName);
     };
 
+    const onClickHome = () => {navigation.navigate('Details')};
+    const onClickMiddle = () => {navigation.navigate('Details')};
+
     const renderContent = () => {
         switch (selectedContents) {
             case 'home':
-                return <HomeContent />;
+                return <HomeContent onClick={onClickHome}/>;
             case 'middle':
-                return <MiddleContent />;
+                return <MiddleContent onClick={onClickMiddle}/>;
             case 'community':
                 return <CommunityContent />;
             case 'my':

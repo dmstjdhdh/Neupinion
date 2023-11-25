@@ -17,7 +17,7 @@ import {Calendar as RNCalendar} from "react-native-calendars";
 const ITEM_SIZE = Dimensions.get('window').width*0.84;
 const SPACER_ITEM_SIZE = (Dimensions.get('window').width - ITEM_SIZE) / 2;
 
-const CardNewsSlide = ({ openPopup }) => {
+const CardNewsSlide = ({ openPopup , onClick }) => {
     const cardData = [
         { id: 'left-spacer'},
         { id: 1, image: require("../public/GPT.png"), title: '오픈AI, 새 챗봇 \'GTP-4 터보\' 공개', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: '경향신문'},
@@ -124,122 +124,124 @@ const CardNewsSlide = ({ openPopup }) => {
                                         alignItems: 'center',
                                         transform: [{ rotate }, {translateY},],
                                     }}>
-                                        <CustomButton
-                                            width={276}
-                                            height={389}
-                                            cut={35}
-                                            cardColor={cardColor}
-                                            borderRadius={10}
-                                        >
-                                            <Image source={item.image} style={styles.cardImage} />
-                                            <View style={{
-                                                width: 57,
-                                                height: 18,
-                                                backgroundColor: '#7E58E9',
-                                                borderTopLeftRadius: 5,
-                                                alignItems: 'center',
-                                                justifyContent: 'space-between',
-                                                position: 'absolute'
-                                            }}>
-                                                <Text style={{
-                                                    color: 'white',
-                                                    fontSize: 11,
-                                                    marginTop: 3,
-                                                    fontWeight: 'normal', }}>
-                                                    {item.station}
-                                                </Text>
-                                            </View>
-                                            <View style={styles.cardContent}>
-                                                {/* 1. 카드뉴스 제목 */}
-                                                <Text style={{
-                                                    fontSize: 16,
-                                                    fontWeight: 'bold',
-                                                    marginBottom: 8,
-                                                    marginLeft: 2,
-                                                    color: textColor,
-                                                    marginTop: 16,
-                                                }}>{item.title}</Text>
-
-                                                {/* 2. 카드뉴스 내용 */}
-                                                <Text style={{
-                                                    marginLeft: 2,
-                                                    fontSize: 12,
-                                                    lineHeight: 18,
-                                                    color: textColor,
-                                                }}>{item.content}</Text>
-
-                                                {/* 3. 주제 태그 이미지 박스, 작성 날짜 */}
-                                                <View style={styles.tagDateContainer}>
-                                                    {/* 주제 태그 이미지 박스 */}
-                                                    <View style={{
-                                                        width: 33.24,
-                                                        height: 18,
-                                                        backgroundColor: tagColor,
-                                                        borderRadius: 3,
-                                                        justifyContent: 'center',
-                                                        alignItems: 'center',
-                                                        marginLeft: 2,
-                                                        marginTop: 4,
-                                                    }}>
-                                                        <Text style={{
-                                                            fontSize: 11,
-                                                            color: 'black', // 원하는 색으로 변경
-                                                        }}>국제</Text>
-                                                    </View>
-                                                    <View style={{width: 10, height: 18, justifyContent: 'center', alignItems: 'center'}}></View>
-                                                    <View style={{
-                                                        width: 33.24,
-                                                        height: 18,
-                                                        backgroundColor: tagColor,
-                                                        borderRadius: 3,
-                                                        justifyContent: 'center',
-                                                        alignItems: 'center',
-                                                        marginLeft: 2,
-                                                        marginTop: 4,
-                                                    }}>
-                                                        <Text style={{
-                                                            fontSize: 11,
-                                                            color: 'black', // 원하는 색으로 변경
-                                                        }}>IT</Text>
-                                                    </View>
-
-                                                    {/* 작성 날짜 */}
+                                        <TouchableOpacity onPress={onClick}>
+                                            <CustomButton
+                                                width={276}
+                                                height={389}
+                                                cut={50}
+                                                cardColor={cardColor}
+                                                borderRadius={10}
+                                            >
+                                                <Image source={item.image} style={styles.cardImage} />
+                                                <View style={{
+                                                    width: 57,
+                                                    height: 18,
+                                                    backgroundColor: '#7E58E9',
+                                                    borderTopLeftRadius: 5,
+                                                    alignItems: 'center',
+                                                    justifyContent: 'space-between',
+                                                    position: 'absolute'
+                                                }}>
                                                     <Text style={{
-                                                        fontSize: 12,
-                                                        marginLeft: 112,
+                                                        color: 'white',
+                                                        fontSize: 11,
+                                                        marginTop: 3,
+                                                        fontWeight: 'normal', }}>
+                                                        {item.station}
+                                                    </Text>
+                                                </View>
+                                                <View style={styles.cardContent}>
+                                                    {/* 1. 카드뉴스 제목 */}
+                                                    <Text style={{
+                                                        fontSize: 16,
+                                                        fontWeight: 'bold',
+                                                        marginBottom: 8,
+                                                        marginLeft: 2,
                                                         color: textColor,
-                                                    }}>2023.11.03</Text>
-                                                </View>
+                                                        marginTop: 16,
+                                                    }}>{item.title}</Text>
 
-                                                {/* 4. 관련 이미지 배너 */}
-                                                <View style={styles.relatedImagesContainer}>
-                                                    <TouchableOpacity onPress={openPopup} style={{
-                                                        width: 39,
-                                                        height: 39,
-                                                        marginRight: 8,
+                                                    {/* 2. 카드뉴스 내용 */}
+                                                    <Text style={{
                                                         marginLeft: 2,
-                                                    }}>
-                                                        <Image source={require('../public/sticker1.png')} style={styles.sticker1} />
-                                                    </TouchableOpacity>
-                                                    <TouchableOpacity onPress={openPopup} style={{
-                                                        width: 39,
-                                                        height: 39,
-                                                        marginRight: 8,
-                                                        marginLeft: 2,
-                                                    }}>
-                                                        <Image source={require('../public/sticker2.png')} style={styles.sticker2} />
-                                                    </TouchableOpacity>
-                                                    <TouchableOpacity onPress={openPopup} style={{
-                                                        width: 39,
-                                                        height: 39,
-                                                        marginRight: 8,
-                                                        marginLeft: 2,
-                                                    }}>
-                                                        <Image source={require('../public/sticker3.png')} style={styles.sticker3} />
-                                                    </TouchableOpacity>
+                                                        fontSize: 12,
+                                                        lineHeight: 18,
+                                                        color: textColor,
+                                                    }}>{item.content}</Text>
+
+                                                    {/* 3. 주제 태그 이미지 박스, 작성 날짜 */}
+                                                    <View style={styles.tagDateContainer}>
+                                                        {/* 주제 태그 이미지 박스 */}
+                                                        <View style={{
+                                                            width: 33.24,
+                                                            height: 18,
+                                                            backgroundColor: tagColor,
+                                                            borderRadius: 3,
+                                                            justifyContent: 'center',
+                                                            alignItems: 'center',
+                                                            marginLeft: 2,
+                                                            marginTop: 4,
+                                                        }}>
+                                                            <Text style={{
+                                                                fontSize: 11,
+                                                                color: 'black', // 원하는 색으로 변경
+                                                            }}>국제</Text>
+                                                        </View>
+                                                        <View style={{width: 10, height: 18, justifyContent: 'center', alignItems: 'center'}}></View>
+                                                        <View style={{
+                                                            width: 33.24,
+                                                            height: 18,
+                                                            backgroundColor: tagColor,
+                                                            borderRadius: 3,
+                                                            justifyContent: 'center',
+                                                            alignItems: 'center',
+                                                            marginLeft: 2,
+                                                            marginTop: 4,
+                                                        }}>
+                                                            <Text style={{
+                                                                fontSize: 11,
+                                                                color: 'black', // 원하는 색으로 변경
+                                                            }}>IT</Text>
+                                                        </View>
+
+                                                        {/* 작성 날짜 */}
+                                                        <Text style={{
+                                                            fontSize: 12,
+                                                            marginLeft: 112,
+                                                            color: textColor,
+                                                        }}>2023.11.03</Text>
+                                                    </View>
+
+                                                    {/* 4. 관련 이미지 배너 */}
+                                                    <View style={styles.relatedImagesContainer}>
+                                                        <TouchableOpacity onPress={openPopup} style={{
+                                                            width: 39,
+                                                            height: 39,
+                                                            marginRight: 8,
+                                                            marginLeft: 2,
+                                                        }}>
+                                                            <Image source={require('../public/sticker1.png')} style={styles.sticker1} />
+                                                        </TouchableOpacity>
+                                                        <TouchableOpacity onPress={openPopup} style={{
+                                                            width: 39,
+                                                            height: 39,
+                                                            marginRight: 8,
+                                                            marginLeft: 2,
+                                                        }}>
+                                                            <Image source={require('../public/sticker2.png')} style={styles.sticker2} />
+                                                        </TouchableOpacity>
+                                                        <TouchableOpacity onPress={openPopup} style={{
+                                                            width: 39,
+                                                            height: 39,
+                                                            marginRight: 8,
+                                                            marginLeft: 2,
+                                                        }}>
+                                                            <Image source={require('../public/sticker3.png')} style={styles.sticker3} />
+                                                        </TouchableOpacity>
+                                                    </View>
                                                 </View>
-                                            </View>
-                                        </CustomButton>
+                                            </CustomButton>
+                                        </TouchableOpacity>
                                     </Animated.View>
                                 </View>
                             </View>
@@ -273,7 +275,6 @@ const CardNewsSlide = ({ openPopup }) => {
                 </View>
             </Modal>
         </View>
-
     );
 };
 

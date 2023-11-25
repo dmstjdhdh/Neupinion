@@ -5,11 +5,10 @@ import { Calendar as RNCalendar } from "react-native-calendars";
 import {LinearGradient} from "expo-linear-gradient";
 import StickerPopup from "./StickerPopup";
 
-const NewsTokTok = () => {
+const NewsTokTok = ({onClick}) => {
     const [activeSlide, setActiveSlide] = useState(0);
     const [isModalVisible, setModalVisible] = useState(false);
     const [selectedDate, setSelectedDate] = useState("");
-
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const showPopup = () => setPopupVisible(true);
@@ -85,7 +84,7 @@ const NewsTokTok = () => {
                 <View style={styles.animationContainer}>
                     <Text style={styles.animationTitle}>바쁘면 이것만, 오늘의 뉴스!</Text>
                     <View style={styles.animationCard}>
-                        <CardNewsSlide openPopup={showPopup}/>
+                        <CardNewsSlide openPopup={showPopup} onClick={onClick}/>
                     </View>
                 </View>
                 <View style={styles.recommendContainer}>
@@ -163,7 +162,6 @@ const NewsTokTok = () => {
                     </View>
                 </View>
                 <View style={{height: 120}}>
-
                 </View>
             </View>
             <Modal
@@ -278,8 +276,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 22,
-        position: 'absolute',
     },
     modalView: {
         margin: 20,

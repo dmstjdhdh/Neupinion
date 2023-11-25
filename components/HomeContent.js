@@ -4,7 +4,7 @@ import IssuesContent from "./IssueContent";
 import MissionsContent from "./MissionsContent";
 import NewsTokTok from "./NewsTokTok";
 
-const HomeContent = () => {
+const HomeContent = ({onClick}) => {
     const [selectedContents, setSelectedContents] = useState('left');
     const underlineWidth = new Animated.Value(60);
     const [position, setPosition] = useState(new Animated.Value(0));
@@ -36,9 +36,9 @@ const HomeContent = () => {
     const renderContent = () => {
         switch (selectedContents) {
             case 'left':
-                return <NewsTokTok />;
+                return <NewsTokTok onClick={onClick}/>;
             case 'center':
-                return <IssuesContent />;
+                return <IssuesContent/>;
             case 'right':
                 return <MissionsContent />;
             default:

@@ -1,26 +1,43 @@
-import React from "react";
-import {View, Text, StyleSheet} from 'react-native';
+import React, { useState } from "react";
+import {View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView, Modal, Image} from 'react-native';
+import CardNewsSlide from "./newstokcomp/CardNewsSlide";
+import CardNewsSlideIssue from "./newstokcomp/CardNewsSlideIssue";
 
 const IssuesContent = () => {
+    const [activeSlide, setActiveSlide] = useState(0);
+
     return (
-        <View style={styles.container}>
-            <Text style = {styles.contentTitle}>이슈 팡팡</Text>
-            <Text style = {styles.contentDescription}>이슈 팡팡 설명입니다.</Text>
+        <View>
+            <View style={{ backgroundColor: '#EFEFEF' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+                    <View style={{ marginTop: 20, marginBottom: 0, marginLeft: 26, marginRight: 0 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
+                            가짜뉴스 이슈
+                        </Text>
+                    </View>
+                </View>
+                <View style={styles.animationContainer}>
+                    <View>
+                        <CardNewsSlideIssue/>
+                    </View>
+                </View>
+            </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+    animationContainer: {
+        height: 800,
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        backgroundColor: 'black',
     },
-    contentTitle: {
-        fontSize: 24,
+    animationTitle: {
+        marginLeft: 24,
+        marginTop: 16,
+        color: 'black',
         fontWeight: 'bold',
-    },
-    contentDescription: {
         fontSize: 16,
     },
 });
