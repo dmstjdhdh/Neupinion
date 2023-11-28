@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView, Modal, Image} from 'react-native';
 import CardNewsSlide from "./newstokcomp/CardNewsSlide";
-import CardNewsSlideIssue from "./newstokcomp/CardNewsSlideIssue";
+import CardNewsSlideIssue from "./issuecomp/CardNewsSlideIssue";
+import CardNewsSlideIssueSecond from "./issuecomp/CardNewsSlideIssueSecond";
 
 const IssuesContent = () => {
     const [activeSlide, setActiveSlide] = useState(0);
 
     return (
         <View>
-            <View style={{ backgroundColor: '#EFEFEF' }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+            <View style={{ backgroundColor: '#EFEFEF', flexDirection: 'column', justifyContent: 'flex-start'  }}>
+                <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
                     <View style={{ marginTop: 20, marginBottom: 0, marginLeft: 26, marginRight: 0 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
                             가짜뉴스 이슈
@@ -21,6 +22,22 @@ const IssuesContent = () => {
                         <CardNewsSlideIssue/>
                     </View>
                 </View>
+                <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
+                    <View style={{ marginTop: 20, marginBottom: 0, marginLeft: 26, marginRight: 0 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
+                            종결된 가짜뉴스 이슈
+                        </Text>
+                    </View>
+                </View>
+                <View style={{
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    marginTop: 12,
+                }}>
+                    <View>
+                        <CardNewsSlideIssueSecond/>
+                    </View>
+                </View>
             </View>
         </View>
     );
@@ -28,10 +45,8 @@ const IssuesContent = () => {
 
 const styles = StyleSheet.create({
     animationContainer: {
-        height: 800,
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        backgroundColor: 'black',
     },
     animationTitle: {
         marginLeft: 24,

@@ -17,11 +17,11 @@ const CardNewsSlideIssue = () => {
 
     const cardDataIssue = [
         { id: 'left-spacer'},
-        { id: 1, image: require("../public/cardDummuy/Dog.png"), title: '오픈AI, 새 챗봇 \'GTP-4 터보\' 공개', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: '경향신문'},
-        { id: 2, image: require("../public/cardDummuy/Dog.png"), title: '수능 N수생 28년만에 최고', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'KBS'},
-        { id: 3, image: require("../public/cardDummuy/Dog.png"), title: '오픈AI, 새 챗봇 \'GTP-4 터보\' 공개', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: '경향신문'},
-        { id: 4, image: require("../public/cardDummuy/Dog.png"), title: '수능 N수생 28년만에 최고', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'KBS'},
-        { id: 5, image: require("../public/cardDummuy/Dog.png"), title: '오픈AI, 새 챗봇 \'GTP-4 터보\' 공개', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: '경향신문'},
+        { id: 1, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
+        { id: 2, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'D-12'},
+        { id: 3, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
+        { id: 4, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
+        { id: 5, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
         { id: 'right-spacer'},
     ];
 
@@ -33,7 +33,6 @@ const CardNewsSlideIssue = () => {
     const whitecolor = '#ffffff'; // Change this color to the color for unselected cards
     const blackcolor = '#000000'; // Change this color to the color for unselected cards
     const whitecolor2 = '#DADADA';// Change this color to the color for unselected cards
-    const tagcolor = '#EDE6FF';
 
     const onClick = () => {
         console.log("1")
@@ -59,16 +58,15 @@ const CardNewsSlideIssue = () => {
 
 
     return (
-        <View>
+        <View style={{
+            backgroundColor: '#EFEFEF', // 배경 색상을 여기로 이동
+        }}>
             <View style={styles.container}>
                 <Animated.FlatList
                     showsHorizontalScrollIndicator={false}
                     data={cardDataIssue}
                     keyExtractor={(item) => item.id}
                     horizontal
-                    contentContainerStyle={{
-                        alignItems: 'center',
-                    }}
                     snapToInterval={ITEM_SIZE}
                     decelerationRate={0}
                     bounces={false}
@@ -77,7 +75,7 @@ const CardNewsSlideIssue = () => {
                         [{nativeEvent: {contentOffset: {x: scrollX}}}],
                         {useNativeDriver: true},
                     )}
-                    style={{height:450, width: Dimensions.get('window').width}}
+                    style={{height:480, width: Dimensions.get('window').width, marginTop: 26}}
                     renderItem={({item, index}) => {
                         if(!item.image) {
                             return(
@@ -96,7 +94,7 @@ const CardNewsSlideIssue = () => {
 
                         const translateY = scrollX.interpolate({
                             inputRange,
-                            outputRange: [25, -15, 25],
+                            outputRange: [40, 0, 40],
                         });
 
                         const rotate = scrollX.interpolate({
@@ -104,22 +102,20 @@ const CardNewsSlideIssue = () => {
                             outputRange: ['3deg', '0deg', '-3deg'],
                         });
 
+
                         const cardColor = index-1 === activeSlideIssue ? whitecolor : whitecolor;
                         const textColor = index-1 === activeSlideIssue ? blackcolor : blackcolor;
-                        const tagColor = index-1 === activeSlideIssue ? tagColor : tagcolor;
+                        const tagColor = index-1 === activeSlideIssue ? '#EDE6FF' : '#EDE6FF';
 
                         return(
                             <View>
                                 <View style={{
                                     width: Dimensions.get('window').width*0.8,
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
                                 }}>
                                     <Animated.View style={{
                                         marginHorizontal: 50,
-                                        padding: 50,
                                         alignItems: 'center',
-                                        transform: [{ rotate }, {translateY},],
+                                        transform: [{ rotate }, {translateY}],
                                     }}>
                                         <TouchableOpacity onPress={onClick}>
                                             <CustomButton
@@ -131,20 +127,20 @@ const CardNewsSlideIssue = () => {
                                             >
                                                 <Image source={item.image} style={styles.cardImage} />
                                                 <View style={{
-                                                    width: 57,
-                                                    height: 18,
-                                                    backgroundColor: '#7E58E9',
-                                                    borderTopLeftRadius: 5,
+                                                    width: 49,
+                                                    height: 28,
+                                                    backgroundColor: 'rgba(255,255,255,0.4)',
+                                                    borderRadius: 5,
                                                     alignItems: 'center',
-                                                    justifyContent: 'space-between',
+                                                    justifyContent: 'center',
                                                     position: 'absolute',
-                                                    marginLeft: 0.5,
+                                                    marginLeft: 194,
+                                                    marginTop: 15,
                                                 }}>
                                                     <Text style={{
                                                         color: 'white',
                                                         fontSize: 11,
-                                                        marginTop: 3,
-                                                        fontWeight: 'normal', }}>
+                                                        fontWeight: 'bold', }}>
                                                         {item.station}
                                                     </Text>
                                                 </View>
@@ -153,8 +149,8 @@ const CardNewsSlideIssue = () => {
                                                     <Text style={{
                                                         fontSize: 16,
                                                         fontWeight: 'bold',
-                                                        marginBottom: 8,
-                                                        marginLeft: 2,
+                                                        marginTop: 16,
+                                                        marginLeft: 20,
                                                         color: textColor,
                                                     }}>{item.title}</Text>
 
@@ -162,40 +158,25 @@ const CardNewsSlideIssue = () => {
                                                     <View style={styles.tagDateContainer}>
                                                         {/* 주제 태그 이미지 박스 */}
                                                         <View style={{
-                                                            width: 33.24,
-                                                            height: 18,
+                                                            width: 34,
+                                                            height: 23,
                                                             backgroundColor: tagColor,
                                                             borderRadius: 3,
                                                             justifyContent: 'center',
                                                             alignItems: 'center',
-                                                            marginLeft: 2,
-                                                            marginTop: 4,
+                                                            marginLeft: 20,
+                                                            marginTop: 12,
                                                         }}>
                                                             <Text style={{
                                                                 fontSize: 11,
                                                                 color: 'black', // 원하는 색으로 변경
                                                             }}>국제</Text>
                                                         </View>
-                                                        <View style={{width: 10, height: 18, justifyContent: 'center', alignItems: 'center'}}></View>
-                                                        <View style={{
-                                                            width: 33.24,
-                                                            height: 18,
-                                                            backgroundColor: tagColor,
-                                                            borderRadius: 3,
-                                                            justifyContent: 'center',
-                                                            alignItems: 'center',
-                                                            marginLeft: 2,
-                                                            marginTop: 4,
-                                                        }}>
-                                                            <Text style={{
-                                                                fontSize: 11,
-                                                                color: 'black', // 원하는 색으로 변경
-                                                            }}>IT</Text>
-                                                        </View>
                                                         <Text style={{
                                                             fontSize: 12,
-                                                            marginLeft: 112,
-                                                            color: textColor,
+                                                            marginLeft: 10,
+                                                            marginTop: 10,
+                                                            color: '#7E7D7A',
                                                         }}>2023.11.03</Text>
                                                     </View>
                                                 </View>
@@ -207,22 +188,57 @@ const CardNewsSlideIssue = () => {
                         )
                     }}>
                 </Animated.FlatList>
-                <View style={{height:440}}>
-                    <Image source={require("../public/cardDummuy/Double.png")} style={{
-                        height:110,
-                        width:220,
-                    }} />
-                    <View style={styles.paginationContainer}>
-                        {filteredCardData.map((_, index) => (
-                            <View
-                                key={index}
-                                style={[
-                                    styles.dotStyle,
-                                    index === activeSlideIssue ? styles.activeDotStyle : styles.inactiveDotStyle,
-                                ]}
-                            />
-                        ))}
+                <View style={{
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                }}>
+                    <View style={
+                        {
+                            height: 110,
+                            alignItems: 'center',
+                        }
+                    }>
+                        <Image source={require('../public/cardDummuy/Double.png')} style={{
+                            width: 220,
+                            height: 71,
+                        }} />
+                        <View style={{
+                            width: 150,
+                            height: 21,
+                            marginTop: 16,
+                            alignItems: 'center',
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                        }}>
+                            <Image source={require('../public/ui/Person.png')} style={{
+                                width: 12.75,
+                                height: 12.75,
+                            }} />
+                            <Text style={{fontSize: 14, color: '#7E7D7A', marginLeft: 8,}}>
+                                1,234명
+                            </Text>
+                            <View style={{width: 20}}>
+                            </View>
+                            <Image source={require('../public/ui/Message.png')} style={{
+                                width: 11.33,
+                                height: 12.75,
+                            }} />
+                            <Text style={{fontSize: 14, color: '#7E7D7A', marginLeft: 8,}}>
+                                1,234명
+                            </Text>
+                        </View>
                     </View>
+                </View>
+                <View style={styles.paginationContainer}>
+                    {filteredCardData.map((_, index) => (
+                        <View
+                            key={index}
+                            style={[
+                                styles.dotStyle,
+                                index === activeSlideIssue ? styles.activeDotStyle : styles.inactiveDotStyle,
+                            ]}
+                        />
+                    ))}
                 </View>
             </View>
         </View>
@@ -232,11 +248,10 @@ const CardNewsSlideIssue = () => {
 const styles = StyleSheet.create({
     container: {
         width: Dimensions.get('window').width,
-        height: 800,
         flexDirection: 'column',
-        justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: '#EFEFEF', // 배경 색상을 여기로 이동
+        justifyContent: 'flex-start', // 중앙 정렬
+        height: 500,
     },
     scrollContainer: {
         flexDirection: 'row',
