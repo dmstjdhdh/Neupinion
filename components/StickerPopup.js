@@ -4,34 +4,17 @@ import { View, Text, Modal, TouchableOpacity, Image, ScrollView, StyleSheet } fr
 const StickerPopup = ({ isVisible, onClose }) => {
     return (
         <Modal
-            animationType="slide"
+            animationType="fade"
             transparent={true}
             visible={isVisible}
             onRequestClose={onClose}
         >
             <View style={styles.modalContainer}>
-                {/* 팝업 내용 */}
+                <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+                    <Image source={require('./public/ui/PopupClose.png')} style={{width:16, height:16,}} />
+                </TouchableOpacity>
                 <View style={styles.popup}>
-                    <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-                        <Text style={styles.closeButtonText}>닫기</Text>
-                    </TouchableOpacity>
 
-                    {/* 팝업 박스 */}
-                    <View style={styles.popupBox}>
-                        {/* 제목 */}
-                        <Text style={styles.popupTitle}>팝업 제목</Text>
-
-                        {/* 이미지 슬라이드 */}
-                        <ScrollView horizontal pagingEnabled>
-                            <Image source={require('./public/sticker1.png')} style={styles.slideImage} />
-                            <Image source={require('./public/sticker2.png')} style={styles.slideImage} />
-                            <Image source={require('./public/sticker3.png')} style={styles.slideImage} />
-                            {/* 추가 이미지들 추가 */}
-                        </ScrollView>
-
-                        {/* 슬라이드 인디케이터 및 다음 버튼 */}
-                        {/* 여기에 슬라이드 인디케이터 및 다음 버튼을 추가하세요 */}
-                    </View>
                 </View>
             </View>
         </Modal>
@@ -41,22 +24,23 @@ const StickerPopup = ({ isVisible, onClose }) => {
 const styles = StyleSheet.create({
     modalContainer: {
         flex: 1,
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     popup: {
         backgroundColor: '#fff',
-        width: 300,
-        height: 400,
+        width: 280,
+        height: 354,
         borderRadius: 10,
         padding: 20,
         paddingBottom: 50, // 다음 버튼이 보이도록 팝업 박스의 하단 패딩 추가
     },
     closeButton: {
-        position: 'absolute',
-        top: 10,
-        right: 10,
+        alignSelf: 'flex-end',
+        marginRight: 59,
+        marginBottom: 12,
     },
     closeButtonText: {
         fontSize: 16,

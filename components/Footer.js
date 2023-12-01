@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     View,
     ScrollView,
-    TouchableHighlight
+    TouchableHighlight, ImageBackground, Platform
 } from 'react-native';
 import HomeContent from './HomeContent';
 import MiddleContent from './MiddleContent';
@@ -40,34 +40,43 @@ const Footer = ({navigation}) => {
     };
 
     return (
-        <View style={{ flex: 1 , backgroundColor: '#EFEFEF'}}>
+        <View style={{ flex: 1 , backgroundColor: '#11111A'}}>
             {renderContent()}
-            <View style={styles.container}>
-                <TouchableOpacity onPress={() => handlePress('home')} style={styles.buttonContainer}>
-                    <View style={[styles.buttonContent, selectedContents === 'home' && styles.selectedButton]}>
-                        <Image source={require('./public/HomeOff.png')} style={styles.logoOne}/>
-                        <Text style={[styles.buttonText, selectedContents === 'home' && styles.selectedText]}>홈</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => handlePress('middle')} style={styles.buttonContainer}>
-                    <View style={[styles.buttonContent, selectedContents === 'middle' && styles.selectedButton]}>
-                        <Image source={require('./public/MiddleOff.png')} style={styles.logoOne}/>
-                        <Text style={[styles.buttonText, selectedContents === 'middle' && styles.selectedText]}>가운데</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => handlePress('community')} style={styles.buttonContainer}>
-                    <View style={[styles.buttonContent, selectedContents === 'community' && styles.selectedButton]}>
-                        <Image source={require('./public/CommunityOff.png')} style={styles.logoOne}/>
-                        <Text style={[styles.buttonText, selectedContents === 'community' && styles.selectedText]}>커뮤니티</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => handlePress('my')} style={styles.buttonContainer}>
-                    <View style={[styles.buttonContent, selectedContents === 'my' && styles.selectedButton]}>
-                        <Image source={require('./public/MyOff.png')} style={styles.logoOne}/>
-                        <Text style={[styles.buttonText, selectedContents === 'my' && styles.selectedText]}>마이페이지</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
+            <ImageBackground
+                source={require('./public/footerbutton/Footer.png')}
+                style={{
+                    width:Dimensions.get('window').width, height: 90,
+                    position: 'absolute',
+                    bottom: 0,
+                    justifyContent: 'flex-end'
+                }}
+                blurRadius={100}
+                borderTopLeftRadius={20}
+                borderTopRightRadius={20}
+            >
+                <View style={styles.container}>
+                    <TouchableOpacity onPress={() => handlePress('home')} style={styles.buttonContainer}>
+                        <View style={[styles.buttonContent, selectedContents === 'home' && styles.selectedButton]}>
+                            <Image source={require('./public/footerbutton/HomeOn.png')} style={styles.logoOne}/>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => handlePress('middle')} style={styles.buttonContainer}>
+                        <View style={[styles.buttonContent, selectedContents === 'middle' && styles.selectedButton]}>
+                            <Image source={require('./public/footerbutton/MiddleOff.png')} style={styles.logoOne}/>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => handlePress('community')} style={styles.buttonContainer}>
+                        <View style={[styles.buttonContent, selectedContents === 'community' && styles.selectedButton]}>
+                            <Image source={require('./public/footerbutton/CommuOff.png')} style={styles.logoOne}/>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => handlePress('my')} style={styles.buttonContainer}>
+                        <View style={[styles.buttonContent, selectedContents === 'my' && styles.selectedButton]}>
+                            <Image source={require('./public/footerbutton/MyOff.png')} style={styles.logoOne}/>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
         </View>
     );
 };
@@ -75,17 +84,14 @@ const Footer = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        height: 80,
-        borderTopLeftRadius: 14,
-        borderTopRightRadius: 14,
-        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
     },
     buttonContainer: {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
     },
     buttonContent: {
         alignItems: 'center',
@@ -100,28 +106,31 @@ const styles = StyleSheet.create({
         color: 'purple',
     },
     logoOne: {
-        width: 16.7,
-        height: 16.7,
-        marginBottom: 5,
-        marginRight: 2,
+        marginTop: 70,
+        width: 85,
+        height: 108,
     },
     logoTwo: {
-        width: 17.75,
-        height: 16.7,
-        marginBottom: 5,
-        marginRight: 2,
+        width: 86,
+        height: 108,
+        marginTop: 5,
     },
     logoThree: {
-        width: 16.7,
-        height: 15.77,
-        marginBottom: 5,
-        marginRight: 2,
+        width: 85,
+        height: 108,
+        marginTop: 5,
     },
     logoFour: {
-        width: 14.61,
-        height: 16.7,
-        marginBottom: 5,
-        marginRight: 2,
+        width: 85,
+        height: 108,
+        marginTop: 5,
+    },
+    absolute: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0
     },
 });
 

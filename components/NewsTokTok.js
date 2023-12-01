@@ -32,10 +32,10 @@ const NewsTokTok = ({onClick}) => {
 
     return (
         <View>
-            <View style={{ backgroundColor: '#EFEFEF' }}>
+            <View style={{ backgroundColor: '#11111A' }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
                     <View style={{ marginTop: 24, marginBottom: 8, marginLeft: 24, marginRight: 0 }}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 16 , color: 'white',}}>
                             {selectedDate
                                 ? `${parseInt(selectedDate.substring(5, 7))}월 ${parseInt(selectedDate.substring(8, 10))}일`
                                 : '11월 22일'}
@@ -47,7 +47,7 @@ const NewsTokTok = ({onClick}) => {
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
                     <View style={{ marginTop: 4, marginBottom: 4, marginLeft: 24, marginRight: 15 }}>
-                        <Text style={{ fontSize: 12 }}>4가지의 새로운 정정기사가 있어요!</Text>
+                        <Text style={{ fontSize: 12, color: 'white', }}>4가지의 새로운 정정기사가 있어요!</Text>
                     </View>
                 </View>
                 <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
@@ -98,7 +98,7 @@ const NewsTokTok = ({onClick}) => {
                                     </Text>
                                 </View>
                                 <View style={{alignItems: 'flex-start', flexDirection: 'row'}}>
-                                    <Text style={{color: '#000000', fontSize: 14, marginTop: 12, marginLeft:16, fontWeight: 'bold'}}>
+                                    <Text style={{color: 'white', fontSize: 14, marginTop: 12, marginLeft:16, fontWeight: 'bold'}}>
                                         사우디 월드컵 개최 확정
                                     </Text>
                                 </View>
@@ -121,7 +121,7 @@ const NewsTokTok = ({onClick}) => {
                                     </Text>
                                 </View>
                                 <View style={{alignItems: 'flex-start', flexDirection: 'row'}}>
-                                    <Text style={{color: '#000000', fontSize: 14, marginTop: 12, marginLeft:16, fontWeight: 'bold'}}>
+                                    <Text style={{color: 'white', fontSize: 14, marginTop: 12, marginLeft:16, fontWeight: 'bold'}}>
                                         올해 수능, 코로나19 확진자도 동일 시험장
                                     </Text>
                                 </View>
@@ -144,7 +144,7 @@ const NewsTokTok = ({onClick}) => {
                                     </Text>
                                 </View>
                                 <View style={{alignItems: 'flex-start', flexDirection: 'row'}}>
-                                    <Text style={{color: '#000000', fontSize: 14, marginTop: 12, marginLeft:16, fontWeight: 'bold'}}>
+                                    <Text style={{color: 'white', fontSize: 14, marginTop: 12, marginLeft:16, fontWeight: 'bold'}}>
                                         또 드러난 전청조의 '임신 사기'
                                     </Text>
                                 </View>
@@ -172,10 +172,18 @@ const NewsTokTok = ({onClick}) => {
                     setModalVisible(false);
                 }}
             >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <RNCalendar onDayPress={onDayPress} />
-                    </View>
+                <View style={styles.modalView}>
+                    <RNCalendar theme={{
+                        backgroundColor: '#21202F',
+                        calendarBackground: '#21202F',
+                        selectedDayTextColor: '#7E58E9',
+                        selectedDayBackgroundColor: '#eef6ff',
+                        todayTextColor: '#21202F',
+                        todayBackgroundColor: '#21202F',
+                        dayTextColor: '#ffffff',
+                        textDisabledColor: '#d9e1e8',
+                        arrowColor: 'white',
+                    }} onDayPress={onDayPress} />
                 </View>
             </Modal>
             <StickerPopup isVisible={isPopupVisible} onClose={closePopup} />
@@ -265,7 +273,7 @@ const styles = StyleSheet.create({
     animationTitle: {
         marginLeft: 24,
         marginTop: 16,
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
         fontSize: 16,
     },
@@ -273,17 +281,14 @@ const styles = StyleSheet.create({
         marginTop: 32,
     },
     centeredView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     modalView: {
-        margin: 20,
-        backgroundColor: 'white',
-        borderRadius: 20,
-        padding: 35,
+        backgroundColor: '#21202F',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
         alignItems: 'center',
         shadowColor: '#000',
+        width: Dimensions.get('window').width,
         shadowOffset: {
             width: 0,
             height: 2,
@@ -304,7 +309,7 @@ const styles = StyleSheet.create({
     recommendTitle: {
         marginLeft: 24,
         marginTop: 16,
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
         fontSize: 16,
     },
@@ -313,7 +318,7 @@ const styles = StyleSheet.create({
         width: 340,
         height: 93,
         borderRadius: 5,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#191926',
         flexDirection: 'row',
         alignItems: 'flex-start',
     },

@@ -15,22 +15,6 @@ export default class CustomButton extends React.Component {
                 borderRadius: borderRadius,
             }}>
                 {children}
-                <View style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    right: 0,
-                    width: 0,
-                    height: 0,
-                    borderStyle: 'solid',
-                    borderTopWidth: 0,
-                    borderRightWidth: 0,
-                    borderBottomWidth: cut,
-                    borderLeftWidth: cut,
-                    borderTopColor: 'transparent',
-                    borderRightColor: 'transparent',
-                    borderBottomColor: '#EFEFEF',
-                    borderLeftColor: 'transparent',
-                }} />
             </View>
         );
     }

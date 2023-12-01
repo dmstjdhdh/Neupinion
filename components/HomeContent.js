@@ -51,7 +51,7 @@ const HomeContent = ({onClick}) => {
             <View style={styles.head}>
                 <View style={styles.iconcontainer}>
                     {/* 좌측 로고 */}
-                    <Text style={{ fontWeight: 'bold', fontSize: 16, marginLeft: -5}}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 16, marginLeft: -5, color: '#EFEFEF'}}>
                         Neupinion
                     </Text>
 
@@ -68,7 +68,7 @@ const HomeContent = ({onClick}) => {
                     </View>
                 </View>
             </View>
-            <View style={styles.headcontents}>
+            <View>
                 <View style={styles.textcontainer}>
                     <TouchableOpacity
                         onPress={() => handlePress('left')}
@@ -107,7 +107,12 @@ const HomeContent = ({onClick}) => {
                     ]}
                 />
             </View>
-            <View style={{ backgroundColor: '#EFEFEF' }}>
+            <View style={{
+                height:0.5,
+                backgroundColor: '#E2E2E2',
+                opacity: '10%',
+            }}/>
+            <View style={{ backgroundColor: '#11111A' }}>
                 <ScrollView>
                     {renderContent()}
                 </ScrollView>
@@ -119,22 +124,24 @@ const HomeContent = ({onClick}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "white",
+        backgroundColor: "#11111A",
     },
     head: {
         flexDirection: 'column',
         height: 49,
-        backgroundColor: "white",
+        backgroundColor: "#11111A",
     },
     textcontainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: 20,
+        backgroundColor: "#11111A",
     },
     iconcontainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: 40,
+        backgroundColor: "#11111A",
     },
     button: {
         flex: 1,

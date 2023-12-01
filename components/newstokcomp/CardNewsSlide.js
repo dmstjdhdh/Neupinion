@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#EFEFEF', // 배경 색상을 여기로 이동
+        backgroundColor: '#11111A', // 배경 색상을 여기로 이동
     },
     scrollContainer: {
         flexDirection: 'row',
