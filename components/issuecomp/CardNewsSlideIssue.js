@@ -59,7 +59,7 @@ const CardNewsSlideIssue = () => {
 
     return (
         <View style={{
-            backgroundColor: '#EFEFEF', // 배경 색상을 여기로 이동
+            backgroundColor: '#11111A', // 배경 색상을 여기로 이동
         }}>
             <View style={styles.container}>
                 <Animated.FlatList

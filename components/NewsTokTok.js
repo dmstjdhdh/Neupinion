@@ -161,7 +161,7 @@ const NewsTokTok = ({onClick}) => {
                         </View>
                     </View>
                 </View>
-                <View style={{height: 120}}>
+                <View style={{height: 220}}>
                 </View>
             </View>
             <Modal

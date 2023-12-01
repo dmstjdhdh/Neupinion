@@ -45,8 +45,9 @@ const Footer = ({navigation}) => {
             <ImageBackground
                 source={require('./public/footerbutton/Footer.png')}
                 style={{
-                    width:Dimensions.get('window').width, height: 90,
+                    width:Dimensions.get('window').width+2, height: 90,
                     position: 'absolute',
+                    left:-1,
                     bottom: 0,
                     justifyContent: 'flex-end'
                 }}
@@ -86,7 +87,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
+        width:Dimensions.get('window').width+2, height: 95,
+        position: 'absolute',
+        left:0,
+        bottom: -5,
+        borderColor: '#7E7D7A',
+        borderWidth: 1,
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
     },
     buttonContainer: {
         flexDirection: 'column',

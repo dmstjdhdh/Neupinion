@@ -9,10 +9,10 @@ const IssuesContent = () => {
 
     return (
         <View>
-            <View style={{ backgroundColor: '#EFEFEF', flexDirection: 'column', justifyContent: 'flex-start'  }}>
+            <View style={{ backgroundColor: '#11111A', flexDirection: 'column', justifyContent: 'flex-start'  }}>
                 <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
                     <View style={{ marginTop: 20, marginBottom: 0, marginLeft: 26, marginRight: 0 }}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 16, color: 'white'}}>
                             가짜뉴스 이슈
                         </Text>
                     </View>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     animationTitle: {
         marginLeft: 24,
         marginTop: 16,
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
         fontSize: 16,
     },

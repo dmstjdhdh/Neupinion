@@ -58,12 +58,12 @@ const HomeContent = ({onClick}) => {
                     {/* 우측 아이콘 */}
                     <View style={{ flexDirection: 'row', alignItems: 'center' , marginLeft: 120}}>
                         <Image
-                            source={require('./public/Icon.png')}
+                            source={require('./public/ui/Search.png')}
                             style={{ width: 16, height: 16 , marginRight: 20}}
                         />
                         <Image
-                            source={require('./public/bell.png')}
-                            style={{ width: 22, height: 22 }}
+                            source={require('./public/ui/Bell.png')}
+                            style={{ width: 14.67, height: 16.5 }}
                         />
                     </View>
                 </View>
