@@ -9,7 +9,7 @@ import {
 const CardNewsSlideIssueSecond = () => {
 
     const cardDataIssue = [
-        { id: 1, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
+        { id: 1, image: require("../public/cardDummuy/bangtan.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
         { id: 2, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'D-12'},
         { id: 3, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
         { id: 4, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
@@ -55,7 +55,7 @@ const CardNewsSlideIssueSecond = () => {
                         fontWeight: 'bold',
                         marginTop: 8,
                         marginLeft: 20,
-                        color: '#000000',
+                        color: '#ffffff',
                     }}>너무너무 졸리다</Text>
 
                     {/* 3. 주제 태그 이미지 박스, 작성 날짜 */}
@@ -69,7 +69,7 @@ const CardNewsSlideIssueSecond = () => {
                         <View style={{
                             width: 34,
                             height: 23,
-                            backgroundColor: '#EDE6FF',
+                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
                             borderRadius: 3,
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -78,7 +78,7 @@ const CardNewsSlideIssueSecond = () => {
                         }}>
                             <Text style={{
                                 fontSize: 11,
-                                color: 'black', // 원하는 색으로 변경
+                                color: 'white', // 원하는 색으로 변경
                             }}>국제</Text>
                         </View>
                         <Text style={{
@@ -121,13 +121,13 @@ const styles = StyleSheet.create({
         width: 218,
         height: 275,
         borderRadius: 10,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#191926',
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
     },
     cardText: {
-        color: '#fff',
+        color: '#ffffff',
         fontSize: 24,
         fontWeight: 'bold',
     },

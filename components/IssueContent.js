@@ -4,7 +4,7 @@ import CardNewsSlide from "./newstokcomp/CardNewsSlide";
 import CardNewsSlideIssue from "./issuecomp/CardNewsSlideIssue";
 import CardNewsSlideIssueSecond from "./issuecomp/CardNewsSlideIssueSecond";
 
-const IssuesContent = () => {
+const IssuesContent = ({onClickYoutube, onClickDetail, onClickVote}) => {
     const [activeSlide, setActiveSlide] = useState(0);
 
     return (
@@ -19,12 +19,12 @@ const IssuesContent = () => {
                 </View>
                 <View style={styles.animationContainer}>
                     <View>
-                        <CardNewsSlideIssue/>
+                        <CardNewsSlideIssue onClickDetail={onClickDetail} onClickVote={onClickVote}/>
                     </View>
                 </View>
                 <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
                     <View style={{ marginTop: 20, marginBottom: 0, marginLeft: 26, marginRight: 0 }}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 16 , color: 'white',}}>
                             종결된 가짜뉴스 이슈
                         </Text>
                     </View>
@@ -38,6 +38,24 @@ const IssuesContent = () => {
                         <CardNewsSlideIssueSecond/>
                     </View>
                 </View>
+                <View style={styles.rectangle}>
+                    {/* Your content goes here */}
+                </View>
+                <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
+                    <View style={{ marginTop: 20, marginBottom: 0, marginLeft: 22, marginRight: 0 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 16 , color: 'white',}}>
+                            영상으로 보는 이슈 뉴스
+                        </Text>
+                    </View>
+                </View>
+                <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
+                    <View style={{ marginTop: 14, marginBottom: 0, marginLeft: -4, marginRight: 0 }}>
+                        <TouchableOpacity onPress={onClickYoutube} style={{ width : 390, height: 520}}>
+                            <Image source={require('./public/youtube.png')} style={{ width : 390, height: 520}}/>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={{height: 200}}></View>
             </View>
         </View>
     );
@@ -54,6 +72,12 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 16,
+    },
+    rectangle: {
+        marginTop: 37,
+        backgroundColor: 'rgba(33, 33, 44, 0.18)',
+        width: Dimensions.get('window').width,
+        height: 10,
     },
 });
 

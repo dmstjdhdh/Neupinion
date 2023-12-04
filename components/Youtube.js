@@ -13,7 +13,7 @@ import {
 import CustomButton from "./CustomButton";
 import CustomButtonCut from "./CustomButtonCut";
 
-const MainNewsOne = ({navigation}) => {
+const Youtube = ({navigation}) => {
     const [isModalVisible, setModalVisible] = useState(false);
     const triangleSize = 11.3;
 
@@ -63,7 +63,7 @@ const MainNewsOne = ({navigation}) => {
                     </View>
                 </View>
                 <View style={styles.newsContainer}>
-                    <Text style={styles.title}>이스라엘 '하루 4시간' 교전 중지, 하마스 인질석방 협상 영향은</Text>
+                    <Text style={styles.title}>유튜브!</Text>
                     <View style={styles.dateContainer}>
                         <View style={{
                             width: 34,
@@ -710,4 +710,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default MainNewsOne;
+export default Youtube;

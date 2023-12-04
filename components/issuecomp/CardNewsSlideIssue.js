@@ -13,15 +13,15 @@ import CustomButton from "../CustomButton";
 const ITEM_SIZE = Dimensions.get('window').width*0.8;
 const SPACER_ITEM_SIZE = (Dimensions.get('window').width - ITEM_SIZE) / 2;
 
-const CardNewsSlideIssue = () => {
+const CardNewsSlideIssue = ({onClickDetail, onClickVote}) => {
 
     const cardDataIssue = [
         { id: 'left-spacer'},
-        { id: 1, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
-        { id: 2, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'D-12'},
-        { id: 3, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
-        { id: 4, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
-        { id: 5, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
+        { id: 1, image: require("../public/cardImage/card1.png"), title: '“푸바오 중국 간다”…반환 날짜 확정', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-07'},
+        { id: 2, image: require("../public/cardImage/card2.png"), title: '“펜타곤 대형 폭발”…美증시 출렁', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'D-12'},
+        { id: 3, image: require("../public/cardImage/card3.png"), title: '\'국가대표 자격 잠정 박탈\' 황의조', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-14'},
+        { id: 4, image: require("../public/cardImage/card1.png"), title: '“푸바오 중국 간다”…반환 날짜 확정', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-07'},
+        { id: 5, image: require("../public/cardImage/card2.png"), title: '“펜타곤 대형 폭발”…美증시 출렁', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'D-12'},
         { id: 'right-spacer'},
     ];
 
@@ -103,9 +103,10 @@ const CardNewsSlideIssue = () => {
                         });
 
 
-                        const cardColor = index-1 === activeSlideIssue ? whitecolor : whitecolor;
-                        const textColor = index-1 === activeSlideIssue ? blackcolor : blackcolor;
-                        const tagColor = index-1 === activeSlideIssue ? '#EDE6FF' : '#EDE6FF';
+                        const cardColor = index-1 === activeSlideIssue ? 'rgba(122, 123, 134, 1)' : whitecolor;
+                        const textColor = index-1 === activeSlideIssue ? whitecolor : whitecolor;
+                        const tagColor = index-1 === activeSlideIssue ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.2)';
+                        const borderColor = index-1 === activeSlideIssue ? 'rgba(122, 123, 134, 1)': '#11111A';
 
                         return(
                             <View>
@@ -117,19 +118,20 @@ const CardNewsSlideIssue = () => {
                                         alignItems: 'center',
                                         transform: [{ rotate }, {translateY}],
                                     }}>
-                                        <TouchableOpacity onPress={onClick}>
+                                        <TouchableOpacity onPress={onClickDetail}>
                                             <CustomButton
                                                 width={258}
                                                 height={275}
                                                 cut={0}
-                                                cardColor={cardColor}
+                                                cardColor={'rgba(34, 34, 46, 1)'}
                                                 borderRadius={10}
+                                                borderColor={borderColor}
                                             >
                                                 <Image source={item.image} style={styles.cardImage} />
                                                 <View style={{
                                                     width: 49,
                                                     height: 28,
-                                                    backgroundColor: 'rgba(255,255,255,0.4)',
+                                                    backgroundColor: 'rgba(25, 25, 38, 0.5)',
                                                     borderRadius: 5,
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
@@ -150,7 +152,7 @@ const CardNewsSlideIssue = () => {
                                                         fontSize: 16,
                                                         fontWeight: 'bold',
                                                         marginTop: 16,
-                                                        marginLeft: 20,
+                                                        marginLeft: 14,
                                                         color: textColor,
                                                     }}>{item.title}</Text>
 
@@ -166,10 +168,11 @@ const CardNewsSlideIssue = () => {
                                                             alignItems: 'center',
                                                             marginLeft: 20,
                                                             marginTop: 12,
+                                                            opacity: 20,
                                                         }}>
                                                             <Text style={{
                                                                 fontSize: 11,
-                                                                color: 'black', // 원하는 색으로 변경
+                                                                color: '#ffffff', // 원하는 색으로 변경
                                                             }}>국제</Text>
                                                         </View>
                                                         <Text style={{
@@ -259,21 +262,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center', // 중앙 정렬
     },
     cardImage: {
-        width: 266,
+        width: 254,
         height: 189,
+        position: 'relative',
+        left: 0,
         resizeMode: 'cover', // 이미지를 카드 크기에 맞춰 보여주기
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
         alignSelf: "center",
         marginBottom: -10,
+        overflow: 'hidden',
     },
     cardContent: {
-        width: 259,
-        height: 86,
+        width: 252,
+        height: 72,
+        position: 'relative',
+        top: 4,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         overflow: 'hidden',
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(34, 34, 46, 1)',
     },
     cardInnerContainer: {
         alignItems: 'center',
@@ -315,7 +323,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: 8,
+        marginTop: 0,
     },
     tagImage: {
         width: 20,

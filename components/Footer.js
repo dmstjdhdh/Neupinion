@@ -13,6 +13,7 @@ import HomeContent from './HomeContent';
 import MiddleContent from './MiddleContent';
 import CommunityContent from './CommunityContent';
 import MyContent from './MyContent';
+import voteResult from "./VoteResult";
 
 const Footer = ({navigation}) => {
     const [selectedContents, setSelectedContents] = useState('home');
@@ -24,10 +25,16 @@ const Footer = ({navigation}) => {
     const onClickHome = () => {navigation.navigate('Details')};
     const onClickMiddle = () => {navigation.navigate('Details')};
 
+    const onClickYoutube = () => {navigation.navigate('Youtube')};
+
+    const onClickIssueDetail = () => {navigation.navigate('DetailIssue')};
+
+    const onClickVoteResult = () => {navigation.navigate('VoteResult')}
+
     const renderContent = () => {
         switch (selectedContents) {
             case 'home':
-                return <HomeContent onClick={onClickHome}/>;
+                return <HomeContent onClick={onClickHome} onClickYoutube={onClickYoutube} onClickDetail={onClickIssueDetail} onClickVote={onClickVoteResult}/>;
             case 'middle':
                 return <MiddleContent onClick={onClickMiddle}/>;
             case 'community':
@@ -51,7 +58,6 @@ const Footer = ({navigation}) => {
                     bottom: 0,
                     justifyContent: 'flex-end'
                 }}
-                blurRadius={100}
                 borderTopLeftRadius={20}
                 borderTopRightRadius={20}
             >

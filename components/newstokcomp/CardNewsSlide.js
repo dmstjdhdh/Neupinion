@@ -20,11 +20,11 @@ const SPACER_ITEM_SIZE = (Dimensions.get('window').width - ITEM_SIZE) / 2;
 const CardNewsSlide = ({ openPopup , onClick }) => {
     const cardData = [
         { id: 'left-spacer'},
-        { id: 1, image: require("../public/Pentagon/CardImage.png"), title: '오픈AI, 새 챗봇 \'GTP-4 터보\' 공개', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: '경향신문'},
-        { id: 2, image: require("../public/Pentagon/CardImage.png"), title: '수능 N수생 28년만에 최고', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'KBS'},
-        { id: 3, image: require("../public/Pentagon/CardImage.png"), title: '오픈AI, 새 챗봇 \'GTP-4 터보\' 공개', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: '경향신문'},
-        { id: 4, image: require("../public/Pentagon/CardImage.png"), title: '수능 N수생 28년만에 최고', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'KBS'},
-        { id: 5, image: require("../public/Pentagon/CardImage.png"), title: '오픈AI, 새 챗봇 \'GTP-4 터보\' 공개', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: '경향신문'},
+        { id: 1, image: require("../public/Pentagon/CardImage.png"), title: '이스라엘 \'하루 4시간\' 교전 중지', content: '팔레스타인 무장정파 하마스 소탕을 위해 가자지구에 화력을 쏟아붓는 이스라엘이 일시적 교전 중단...', station: '경향신문', tag: '국제', daY:'2023.11.03', tag2: '전쟁'},
+        { id: 2, image: require("../public/Pentagon/pentagon2.png"), title: '고층서 초등생이 던진 돌에 70대 사망', content: '서울의 한 아파트 현관 앞, 곳곳에 사고의 흔적이 남아 있습니다. 어제 오후 4시 반쯤 이곳에 사는...', station: 'KBS', tag: '사회', daY:'2023.11.19', tag2: '사회'},
+        { id: 3, image: require("../public/Pentagon/pentagon3.png"), title: '블랙핑크 로제가 APEC 정상회의에?', content: '블랙핑크의 멤버 로제가 아시아태평양경제협력체(APEC) 정상회의에 참석한 각국 정상의 배우...', station: '경향신문', tag: '연예', daY:'2023.11.20', tag2: '국제'},
+        { id: 4, image: require("../public/Pentagon/CardImage.png"), title: '이스라엘 \'하루 4시간\' 교전 중지', content: '팔레스타인 무장정파 하마스 소탕을 위해 가자지구에 화력을 쏟아붓는 이스라엘이 일시적 교전 중단...', station: 'KBS', tag: '국제', daY:'2023.11.03',tag2: '전쟁'},
+        { id: 5, image: require("../public/Pentagon/CardImage.png"), title: '고층서 초등생이 던진 돌에 70대 사망', content: '서울의 한 아파트 현관 앞, 곳곳에 사고의 흔적이 남아 있습니다. 어제 오후 4시 반쯤 이곳에 사는...', station: '경향신문', tag: '사회', daY:'2023.11.19',tag2: '국제'},
         { id: 'right-spacer'},
     ];
 
@@ -99,7 +99,7 @@ const CardNewsSlide = ({ openPopup , onClick }) => {
 
                         const translateY = scrollX.interpolate({
                             inputRange,
-                            outputRange: [40, -30, 40],
+                            outputRange: [30, -20, 30],
                         });
 
                         const rotate = scrollX.interpolate({
@@ -110,6 +110,7 @@ const CardNewsSlide = ({ openPopup , onClick }) => {
                         const cardColor = index-1 === activeSlide ? selectedCardColor : unselectedCardColor;
                         const textColor = index-1 === activeSlide ? selectedTextColor : unselectedTextColor;
                         const tagColor = index-1 === activeSlide ? unselectedCardColor : unselectedTagColor;
+                        const borderColor = index-1 === activeSlide ? 'rgba(122, 123, 134, 1)': '#11111A';
 
                         return(
                             <View>
@@ -131,9 +132,10 @@ const CardNewsSlide = ({ openPopup , onClick }) => {
                                                 cut={50}
                                                 cardColor={cardColor}
                                                 borderRadius={10}
+                                                borderColor={borderColor}
                                             >
-                                                <Text style={{marginLeft: 24, marginTop:24, fontSize:16, color:'white', fontWeight: 'bold'}}>이스라엘 '하루 4시간' 교전 중지</Text>
-                                                <Text style={{marginLeft: 24, marginTop:6, fontSize:12, color:'white', width: 240,}}>팔레스타인 무장정파 하마스 소탕을 위해 가자지구에 화력을 쏟아붓는 이스라엘이 일시적 교전 중단...</Text>
+                                                <Text style={{marginLeft: 24, marginTop:24, fontSize:16, color:'white', fontWeight: 'bold'}}>{item.title}</Text>
+                                                <Text style={{marginLeft: 24, marginTop:6, fontSize:12, color:'white', width: 240,}}>{item.content}</Text>
                                                 <View style={{flexDirection: 'row', marginTop:12,}}>
                                                     <View style={{
                                                         marginLeft:24,
@@ -147,7 +149,7 @@ const CardNewsSlide = ({ openPopup , onClick }) => {
                                                         <Text style={{
                                                             fontSize: 11,
                                                             color: '#ffffff', // 원하는 색으로 변경
-                                                        }}>국제</Text>
+                                                        }}>{item.tag2}</Text>
                                                     </View>
                                                     <View style={{
                                                         marginLeft:12,
@@ -161,14 +163,14 @@ const CardNewsSlide = ({ openPopup , onClick }) => {
                                                         <Text style={{
                                                             fontSize: 11,
                                                             color: '#ffffff', // 원하는 색으로 변경
-                                                        }}>전쟁</Text>
+                                                        }}>{item.tag}</Text>
                                                     </View>
                                                     <Text style={{
                                                         fontSize: 12,
                                                         marginLeft: 112,
                                                         marginTop: 2,
                                                         color: '#7E7D7A',
-                                                    }}>2023.11.03</Text>
+                                                    }}>{item.daY}</Text>
                                                 </View>
                                                 <Image source={item.image} style={styles.cardImage} />
                                                 <TouchableOpacity onPress={openPopup} style={{
