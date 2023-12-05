@@ -316,7 +316,9 @@ const VoteResult = ({navigation}) => {
                             flexDirection: 'column',
                             alignItems: 'center',
                         }}
-                    ></View>
+                    >
+                        <Image source={require('./public/DetailOne.png')} style={{width:265.81, height:88, marginTop: 49,}}/>
+                    </View>
                     <View style={styles.commandContainer}>
                         <View
                             style={{
