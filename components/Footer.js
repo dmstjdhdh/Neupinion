@@ -29,14 +29,16 @@ const Footer = ({navigation}) => {
 
     const onClickIssueDetail = () => {navigation.navigate('DetailIssue')};
 
-    const onClickVoteResult = () => {navigation.navigate('VoteResult')}
+    const onClickVoteResult = () => {navigation.navigate('VoteResult')};
+
+    const onClickEdu = () => {navigation.navigate('Edu')};
 
     const renderContent = () => {
         switch (selectedContents) {
             case 'home':
                 return <HomeContent onClick={onClickHome} onClickYoutube={onClickYoutube} onClickDetail={onClickIssueDetail} onClickVote={onClickVoteResult}/>;
             case 'middle':
-                return <MiddleContent onClick={onClickMiddle}/>;
+                return <MiddleContent onClick={onClickMiddle} onClickEdu={onClickEdu}/>;
             case 'community':
                 return <CommunityContent />;
             case 'my':

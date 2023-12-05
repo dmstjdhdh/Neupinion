@@ -10,6 +10,7 @@ import Youtube from "./components/Youtube";
 import DetailIssue from "./components/DetailIssue";
 import VoteResult from "./components/VoteResult";
 import Post from "./components/Post";
+import Edu from "./components/Edu";
 
 const Stack = createStackNavigator();
 
@@ -53,6 +54,14 @@ const App = () => {
               <Stack.Screen
                   name="VoteDetail"
                   component={VoteResult}
+                  options={{
+                      headerShown: false,
+                      ...TransitionPresets.SlideFromRightIOS,
+                  }}
+              />
+              <Stack.Screen
+                  name="Edu"
+                  component={Edu}
                   options={{
                       headerShown: false,
                       ...TransitionPresets.SlideFromRightIOS,
