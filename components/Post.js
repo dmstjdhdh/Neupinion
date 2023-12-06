@@ -17,10 +17,43 @@ import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 const Post = ({navigation}) => {
     const [isModalVisible, setModalVisible] = useState(false);
 
+    const [isFocused, setIsFocused] = useState(false);
+
+    const data = {
+        "1": "블룸버그통신 보도",
+        "2": "미 워싱턴DC 펜타곤 건물",
+        "3": "검은 연기 피어오르는",
+        "4": "트위터를 통해 국내외로 빠르게 확산했다.",
+        "5": "미 NBC 뉴스 소개",
+        "6": "트위터 유료 계정 게시",
+        "7": "트럼프 지지 음모론 단체",
+        "8": "페이스북 연관 계정",
+        "9": "CNBC 보도",
+        "10": "미 증시 개장 사진 확산",
+        "11": "S&P 500 지수 하락",
+        "12": "미국 국채 가격 상승",
+        "13": "투자자 돈 보관",
+        "14": "안전한 곳 찾음",
+        "15": "기사 내용 요약",
+        "16" : "트위터 유료 계정에서 이날 오전 8시42분경 처음 게시됐다.",
+    };
+
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+        setText("트위터를 통해 국내외로 빠르게 확산했다.")
+    };
+
     const handleButtonPress = () => {
         setModalVisible(true);
     };
-    const onClick = () => {navigation.navigate('DetailIssue')};
+    const onClick = () => {
+        navigation.navigate('DetailIssueData')
+    };
 
     const [text, setText] = useState('');
     const [textContent, setTextContent] = useState('');
@@ -79,7 +112,7 @@ const Post = ({navigation}) => {
                                 marginLeft: 25,
                             }}
                         >
-                            어디가 젤 수상했나요..
+                            의견을 남겨 주세요
                         </Text>
                         <TouchableOpacity onPress={toggleModal} style={{
                             width: 55,
@@ -99,26 +132,52 @@ const Post = ({navigation}) => {
                     </View>
                 </View>
                 <View
-                    style={{
-                        width: 334,
-                        height: 58,
-                        backgroundColor: 'rgba(25, 25, 38, 1)',
-                        borderRadius: 10,
-                        overflow: 'hidden',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        alignSelf: 'center',
-                        marginTop: 13,
-                    }}
+                    style={isFocused === true ? styles.titleBoxFocus : styles.titleBox}
                 >
-                    <Image source={require('./public/colorpin.png')} style={{width: 6, height: 11, marginLeft: 20}}/>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="내용을 입력해주세요."
-                        placeholderTextColor="#7E7D7A"
-                        value={text}
-                        onChangeText={handleChangeText}
-                    />
+                    <View style={{alignSelf: 'flex-start'}}>
+                        <View style={{flexDirection: 'row'}}>
+                            <Image source={require('./public/colorpin.png')} style={{width: 6, height: 11, marginLeft: 20, marginTop: 24}}/>
+                            <TextInput
+                                style={styles.input}
+                                placeholder="내용을 입력해주세요."
+                                placeholderTextColor="#7E7D7A"
+                                value={text}
+                                onChangeText={handleChangeText}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                            />
+                        </View>
+                        {isFocused && text.length < 1 &&
+                            <View>
+                                <View style={{width: 338, height: 0.8, backgroundColor: 'rgba(255,255,255,0.1)', marginTop: 8}}/>
+                                <ScrollView contentContainerStyle={{width: 338,}}>
+                                    {Object.keys(data).map((key) => (
+                                        <Text key={key} style={{width: 295, fontSize:15, fontWeight: "500", marginTop: 20, marginLeft: 20, color: 'white'}}>
+                                            {data[key]}
+                                        </Text>
+                                    ))}
+                                </ScrollView>
+                            </View>
+                        }
+                        {isFocused && text.length > 1 &&
+                            <View>
+                                <View style={{width: 338, height: 0.8, backgroundColor: 'rgba(255,255,255,0.1)', marginTop: 8}}/>
+                                <ScrollView contentContainerStyle={{width: 338,}}>
+                                    <TouchableOpacity onPress={handleBlur}>
+                                        <Text style={{ width: 295, fontSize: 15, fontWeight: "500", marginTop: 20, marginLeft: 20, color: 'white' }}>
+                                            <Text style={{ color: '#7E58E9' }}>트위터</Text>를 통해 국내외로 빠르게 확산했다.
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={() => {}}>
+                                        <Text style={{ width: 295, fontSize: 15, fontWeight: "500", marginTop: 20, marginLeft: 20, color: 'white' }}>
+                                            <Text style={{ color: '#7E58E9' }}>트위터</Text> 유료 계정에서 이날 오전 8시42분경 처음 게시됐다.
+                                        </Text>
+                                    </TouchableOpacity>
+                                </ScrollView>
+                            </View>
+                        }
+
+                    </View>
                 </View>
                 <View style={styles.postContainer}>
                     <View style={{flexDirection: 'row', }}>
@@ -150,22 +209,16 @@ const Post = ({navigation}) => {
                         marginTop: 13,
                     }}
                 >
-                    <KeyboardAwareScrollView
-                        contentContainerStyle={styles.container}
-                        resetScrollToCoords={{ x: 0, y: 0 }}
-                        scrollEnabled={true}
-                    >
-                        {/* 여기에 다른 컴포넌트들을 추가하세요 */}
-                        <TextInput
-                            style={styles.inputContext}
-                            placeholder="내용을 입력해주세요."
-                            placeholderTextColor="#7E7D7A"
-                            value={textContent}
-                            onChangeText={handleChangeTextContent}
-                        />
-                    </KeyboardAwareScrollView>
-                    <Text style={{color: '#7E7D7A', fontWeight: '500', fontSize: 14, position: 'absolute', left: 255, top: 155}}>
-                        {textContent.length}/500자
+                    <TextInput
+                        style={styles.inputContext}
+                        placeholder="내용을 입력해주세요."
+                        placeholderTextColor="#7E7D7A"
+                        value={textContent}
+                        onChangeText={handleChangeTextContent}
+                        multiline={true}
+                    />
+                    <Text style={{color: '#7E7D7A', fontWeight: '500', fontSize: 14, position: 'absolute', left: 235, top: 155}}>
+                        {textContent.length}자/500자
                     </Text>
                 </View>
                 <View style={{height: 400}}>
@@ -235,18 +288,21 @@ const Post = ({navigation}) => {
 
 const styles = StyleSheet.create({
     input: {
-        width: 182,
+        marginTop: 16,
+        fontSize: 15,
+        width: 270,
         height: 28,
         marginLeft: 12,
         fontWeight: '500',
         color: 'rgba(255, 255, 255, 0.9)'
     },
     inputContext: {
-        width: 295,
-        height: 28,
+        width: 298,
+        height: 46,
         marginTop: 14,
         marginLeft: 20,
-        color: 'rgba(255, 255, 255, 0.9)'
+        color: 'rgba(255, 255, 255, 0.9)',
+        fontSize: 15,
     },
     dateContainer: {
         width: Dimensions.get('window').width,
@@ -301,6 +357,28 @@ const styles = StyleSheet.create({
     context: {
         fontSize: 14, color: 'white', width: 344, fontWeight: 'normal', marginTop: 18, lineHeight: 20,
     },
+    titleBox: {
+        width: 334,
+        height: 58,
+        backgroundColor: 'rgba(25, 25, 38, 1)',
+        borderRadius: 10,
+        overflow: 'hidden',
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: 13,
+    },
+    titleBoxFocus: {
+        width: 334,
+        height: 312,
+        backgroundColor: 'rgba(25, 25, 38, 1)',
+        borderRadius: 10,
+        overflow: 'hidden',
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: 13,
+    }
 });
 
 export default Post;

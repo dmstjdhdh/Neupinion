@@ -244,9 +244,9 @@ const MainNewsOne = ({navigation}) => {
                             marginTop: 16,
                         }}
                     >
-                        교전 중단 : 일반적으로 구호 활동이 수행될 특정 기간과 구역에 한정돼어 시행돼. 가자지구의 경우에는 민간인들이 전투지역에서 대피 할 수 있고, 유엔 등 국제 구호 기구가 식량과 물을 공급할 수도 있지.
+                        교전 중단 {<Image source={require('./public/imagesw.png')} style={{width: 17, height: 17, position: 'relative'}}/>} : 일반적으로 구호 활동이 수행될 특정 기간과 구역에 한정돼어 시행돼. 가자지구의 경우에는 민간인들이 전투지역에서 대피 할 수 있고, 유엔 등 국제 구호 기구가 식량과 물을 공급할 수도 있지.
                         {'\n\n'}
-                        휴전 : 분쟁 국가들이 합의한 ‘전투 중단 상태’로 규정해. 영구적인 정치적 타협 가능성을 포함해서, 당사자들이 대화에 참여할 수 있도록 허용하는 걸 목표로 하지. 분쟁 상태를 근본적으로 해결하기 위한 협상의 여지를 줘.
+                        휴전 {<Image source={require('./public/imageb.png')} style={{width: 17, height: 17, position: 'relative'}}/>} : 분쟁 국가들이 합의한 ‘전투 중단 상태’로 규정해. 영구적인 정치적 타협 가능성을 포함해서, 당사자들이 대화에 참여할 수 있도록 허용하는 걸 목표로 하지. 분쟁 상태를 근본적으로 해결하기 위한 협상의 여지를 줘.
                     </Text>
                     <Text
                         style={{
@@ -344,7 +344,7 @@ const MainNewsOne = ({navigation}) => {
                             marginLeft: 25,
                         }}
                     >
-                        이 뉴스는 얼마나 신뢰할 수 있어?
+                        이 뉴스는 얼마나 신뢰할 수 있나요?
                     </Text>
 
                     <View style={{ marginTop: 18, }}>
@@ -355,7 +355,7 @@ const MainNewsOne = ({navigation}) => {
                             cardColor={'#191926'}
                             borderRadius={10}
                         >
-                            <Image source={require('./public/Pentagon/CardImage.png')} style={styles.cardImage} />
+                            <Image source={require('./public/Pentagon/CardImageReal.png')} style={styles.cardImage} />
                             <View style={{
                                 alignSelf: 'center',
                                 marginTop: 10,
@@ -637,12 +637,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     cardImage: {
-        width: 223,
-        height: 223,
-        marginTop: 48,
+        width: 297,
+        height: 231,
+        marginTop: 30,
         alignSelf: "center",
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
+        marginBottom: 8,
     },
     screenShot: {
         width:Dimensions.get('window').width,

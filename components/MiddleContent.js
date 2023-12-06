@@ -4,6 +4,8 @@ import {View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions,
 const MiddleContent = ({onClickEdu}) => {
     const flatListRef = useRef(null);
     const flatListRefStar = useRef(null);
+    const flatListRefLast = useRef(null);
+
     const data = [
         { id: 1, image: require("./public/cardImage23.png"), title: '의대증원, 대학아닌 "지역 중심 배분" 목소리', content: '의대 증원을 정원 50인 미만 소규모 의대가 아닌 지역의료 격차와 의사 수 격차를 기준으로 시행해야 한다는 의견이 제기됐다. 인구 1,000명당 활동 의사 수가 전국 평균보다도 낮...', station: 'D-12', width: 312, height: 120},
         { id: 2, image: require("./public/cardImage23.png"), title: '의대증원, 대학아닌 "지역 중심 배분" 목소리', content: '의대 증원을 정원 50인 미만 소규모 의대가 아닌 지역의료 격차와 의사 수 격차를 기준으로 시행해야 한다는 의견이 제기됐다. 인구 1,000명당 활동 의사 수가 전국 평균보다도 낮...', station: 'D-12', width: 312, height: 120},
@@ -302,7 +304,7 @@ const MiddleContent = ({onClickEdu}) => {
                                 ref={flatListRef}
                                 data={data}
                                 renderItem={renderItem}
-                                keyExtractor={(item) => item.toString()}
+                                keyExtractor={(item) => item.id.toString()}
                                 horizontal
                                 pagingEnabled
                                 showsHorizontalScrollIndicator={false}
@@ -324,10 +326,10 @@ const MiddleContent = ({onClickEdu}) => {
                         </View>
                         <View style={{width: Dimensions.get('window').width, height: 300, marginLeft: 20}}>
                             <FlatList
-                                ref={flatListRef}
+                                ref={flatListRefStar}
                                 data={data2}
                                 renderItem={renderItem}
-                                keyExtractor={(item) => item.toString()}
+                                keyExtractor={(item) => item.id.toString()}
                                 horizontal
                                 pagingEnabled
                                 showsHorizontalScrollIndicator={false}
@@ -343,10 +345,10 @@ const MiddleContent = ({onClickEdu}) => {
                         </Text>
                         <View style={{width: Dimensions.get('window').width, height: 300, marginLeft: 16}}>
                             <FlatList
-                                ref={flatListRefStar}
+                                ref={flatListRefLast}
                                 data={data3}
                                 renderItem={renderItemStar}
-                                keyExtractor={(item) => item.toString()}
+                                keyExtractor={(item) => item.id.toString()}
                                 horizontal
                                 pagingEnabled
                                 showsHorizontalScrollIndicator={false}

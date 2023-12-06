@@ -233,6 +233,7 @@ const DetailIssue = ({navigation}) => {
                         의견쓰기
                     </Text>
 
+                    <Image source={require('./public/Post.png')} style={{width:127.5, height: 99, marginRight: 24, marginBottom: 20, marginTop: 18}}/>
                     <Text style={{
                         fontSize: 16,
                         fontWeight: "bold",

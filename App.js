@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Footer from "./components/Footer";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -11,10 +11,19 @@ import DetailIssue from "./components/DetailIssue";
 import VoteResult from "./components/VoteResult";
 import Post from "./components/Post";
 import Edu from "./components/Edu";
+import ComDetail from "./components/ComDetail";
+import DetailIssueData from "./components/DetailIssueData";
+import {LogBox} from "react-native";
 
 const Stack = createStackNavigator();
 
 const App = () => {
+
+    useEffect(() => {
+        console.warn("강제로 경고를 만듭니다 !");
+        console.error("강제로 에러를 만듭니다 !");
+        LogBox.ignoreAllLogs()
+    }, [])
 
   return (
       <NavigationContainer>
@@ -52,6 +61,14 @@ const App = () => {
                   }}
               />
               <Stack.Screen
+                  name="DetailIssueData"
+                  component={DetailIssueData}
+                  options={{
+                      headerShown: false,
+                      ...TransitionPresets.SlideFromRightIOS,
+                  }}
+              />
+              <Stack.Screen
                   name="VoteDetail"
                   component={VoteResult}
                   options={{
@@ -62,6 +79,14 @@ const App = () => {
               <Stack.Screen
                   name="Edu"
                   component={Edu}
+                  options={{
+                      headerShown: false,
+                      ...TransitionPresets.SlideFromRightIOS,
+                  }}
+              />
+              <Stack.Screen
+                  name="ComDetail"
+                  component={ComDetail}
                   options={{
                       headerShown: false,
                       ...TransitionPresets.SlideFromRightIOS,

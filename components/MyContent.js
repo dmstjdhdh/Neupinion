@@ -187,7 +187,7 @@ const MyContent = () => {
                                 ref={flatListRef}
                                 data={data}
                                 renderItem={renderItem}
-                                keyExtractor={(item) => item.toString()}
+                                keyExtractor={(item) => item.id.toString()}
                                 horizontal
                                 pagingEnabled
                                 showsHorizontalScrollIndicator={false}
@@ -206,7 +206,7 @@ const MyContent = () => {
                                 ref={flatListRefStar}
                                 data={dataCard}
                                 renderItem={renderItemStar}
-                                keyExtractor={(item) => item.toString()}
+                                keyExtractor={(item) => item.id.toString()}
                                 horizontal
                                 pagingEnabled
                                 showsHorizontalScrollIndicator={false}

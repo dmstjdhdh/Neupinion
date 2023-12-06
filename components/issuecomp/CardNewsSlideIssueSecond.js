@@ -9,11 +9,8 @@ import {
 const CardNewsSlideIssueSecond = () => {
 
     const cardDataIssue = [
-        { id: 1, image: require("../public/cardDummuy/bangtan.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
-        { id: 2, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'D-12'},
-        { id: 3, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
-        { id: 4, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
-        { id: 5, image: require("../public/cardDummuy/Dog.png"), title: '너무너무 졸리다', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12'},
+        { id: 1, image: require("../public/IssueCard.png"), title: 'RM·지민·뷔·정국, 12월 동반 입대', content: '챗(Chat)GPT를 개발한 회사인 오픈(Open)AI가 첫\n빅테크 쇼케이스를 열고 최신 챗봇인 \'GPT-4 터보\n(Turbo)\'를 공개했다. 새로 공개한 GPT-4 터보는...', station: 'D-12', tag: "문화", isReal: "진짜", color: "#7E58E9"},
+        { id: 2, image: require("../public/IssueCard2.png"), title: '한동훈 딸 MIT 합격', content: '오는 16일 치러지는 2024학년도 수학능력시험 응시\n자는 50만 4,588명입니다. 이 가운데 재학생은 32만\n6천여명, 재수생 등 졸업생은 15만 9천여명...', station: 'D-12', tag: "국제", isReal: "가짜",color: "#FF5730"},
     ];
 
     const data = [1, 2, 3, 4, 5]; // 카드에 표시할 데이터
@@ -28,11 +25,11 @@ const CardNewsSlideIssueSecond = () => {
                     // 특정 카드 클릭 시 처리할 로직 추가
                 }}
             >
-                <Image source={require('../public/Rectangle.png')} style={styles.cardImage}/>
+                <Image source={item.image} style={styles.cardImage}/>
                 <View style={{
                     width: 93,
                     height: 44,
-                    backgroundColor: '#7E58E9',
+                    backgroundColor: item.color,
                     borderRadius: 5,
                     alignSelf: 'center',
                     alignItems: 'center',
@@ -45,18 +42,18 @@ const CardNewsSlideIssueSecond = () => {
                         color: 'white',
                         fontSize: 16,
                         fontWeight: 'bold', }}>
-                        진짜
+                        {item.isReal}
                     </Text>
                 </View>
                 <View>
                     {/* 1. 카드뉴스 제목 */}
                     <Text style={{
-                        fontSize: 15,
+                        fontSize: 14,
                         fontWeight: 'bold',
                         marginTop: 8,
-                        marginLeft: 20,
+                        marginLeft: 16,
                         color: '#ffffff',
-                    }}>너무너무 졸리다</Text>
+                    }}>{item.title}</Text>
 
                     {/* 3. 주제 태그 이미지 박스, 작성 날짜 */}
                     <View style={{
@@ -73,18 +70,18 @@ const CardNewsSlideIssueSecond = () => {
                             borderRadius: 3,
                             justifyContent: 'center',
                             alignItems: 'center',
-                            marginLeft: 20,
-                            marginTop: 12,
+                            marginLeft: 16,
+                            marginTop: 16,
                         }}>
                             <Text style={{
                                 fontSize: 11,
                                 color: 'white', // 원하는 색으로 변경
-                            }}>국제</Text>
+                            }}>{item.tag}</Text>
                         </View>
                         <Text style={{
                             fontSize: 12,
                             marginLeft: 10,
-                            marginTop: 10,
+                            marginTop: 16,
                             color: '#7E7D7A',
                         }}>2023.11.03</Text>
                     </View>
@@ -97,7 +94,7 @@ const CardNewsSlideIssueSecond = () => {
         <View style={styles.container}>
             <FlatList
                 ref={flatListRef}
-                data={data}
+                data={cardDataIssue}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.toString()}
                 horizontal

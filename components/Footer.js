@@ -29,9 +29,13 @@ const Footer = ({navigation}) => {
 
     const onClickIssueDetail = () => {navigation.navigate('DetailIssue')};
 
+    const onClickIssueDetailData = () => {navigation.navigate('DetailIssueData')};
+
     const onClickVoteResult = () => {navigation.navigate('VoteResult')};
 
     const onClickEdu = () => {navigation.navigate('Edu')};
+
+    const onClickComDetail = () => {navigation.navigate('ComDetail')};
 
     const renderContent = () => {
         switch (selectedContents) {
@@ -40,7 +44,7 @@ const Footer = ({navigation}) => {
             case 'middle':
                 return <MiddleContent onClick={onClickMiddle} onClickEdu={onClickEdu}/>;
             case 'community':
-                return <CommunityContent />;
+                return <CommunityContent onClick={onClickComDetail}/>;
             case 'my':
                 return <MyContent />;
             default:
@@ -65,23 +69,17 @@ const Footer = ({navigation}) => {
             >
                 <View style={styles.container}>
                     <TouchableOpacity onPress={() => handlePress('home')} style={styles.buttonContainer}>
-                        <View style={[styles.buttonContent, selectedContents === 'home' && styles.selectedButton]}>
-                            <Image source={require('./public/footerbutton/HomeOn.png')} style={styles.logoOne}/>
-                        </View>
+                        <Image source={selectedContents === 'home' ? require('./public/FooterICON/HOn.png') : require('./public/FooterICON/HOff.png')} style={{width:18, height:44}}/>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => handlePress('middle')} style={styles.buttonContainer}>
-                        <View style={[styles.buttonContent, selectedContents === 'middle' && styles.selectedButton]}>
-                            <Image source={require('./public/footerbutton/MiddleOff.png')} style={styles.logoOne}/>
-                        </View>
+                        <Image source={selectedContents === 'middle' ? require('./public/FooterICON/MOn.png') : require('./public/FooterICON/MOff.png')} style={{width:22, height:46}}/>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => handlePress('community')} style={styles.buttonContainer}>
-                        <View style={[styles.buttonContent, selectedContents === 'community' && styles.selectedButton]}>
-                            <Image source={require('./public/footerbutton/CommuOff.png')} style={styles.logoOne}/>
-                        </View>
+                        <Image source={selectedContents === 'community' ? require('./public/FooterICON/ComOn.png') : require('./public/FooterICON/ComOff.png')} style={{width:44, height:46}}/>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => handlePress('my')} style={styles.buttonContainer}>
                         <View style={[styles.buttonContent, selectedContents === 'my' && styles.selectedButton]}>
-                            <Image source={require('./public/footerbutton/MyOff.png')} style={styles.logoOne}/>
+                            <Image source={selectedContents === 'my' ? require('./public/FooterICON/MyOn.png') : require('./public/FooterICON/MyOff.png')} style={{width:22, height:46}}/>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -108,6 +106,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        width: 75,
     },
     buttonContent: {
         alignItems: 'center',

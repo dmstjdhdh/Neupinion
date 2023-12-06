@@ -16,6 +16,7 @@ import CustomButtonCut from "./CustomButtonCut";
 const Edu = ({navigation}) => {
     const [isModalVisible, setModalVisible] = useState(false);
     const triangleSize = 11.3;
+    const flatListRef = useRef(null);
     const flatListRefStar = useRef(null);
 
     const toggleModal = () => {
@@ -141,10 +142,10 @@ const Edu = ({navigation}) => {
                     <Text style={styles.title}>시리즈로 준비했어요</Text>
                     <View style={{width: Dimensions.get('window').width, height: 300, marginLeft: 36}}>
                         <FlatList
-                            ref={flatListRefStar}
+                            ref={flatListRef}
                             data={data3}
                             renderItem={renderItemStar}
-                            keyExtractor={(item) => item.toString()}
+                            keyExtractor={(item) => item.id.toString()}
                             horizontal
                             pagingEnabled
                             showsHorizontalScrollIndicator={false}
